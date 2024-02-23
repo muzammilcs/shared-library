@@ -1,5 +1,7 @@
 def call(Map config=[:]){
+    def gitTool=tool 'git'
     echo config.url
-    checkout([$class: 'GitSCM', branches: [[name: '*/master']],
-    userRemoteConfigs: [[url: "$config.url"]]])
+
+     git branch: */master, url: "${config.url}"
+    
 }
