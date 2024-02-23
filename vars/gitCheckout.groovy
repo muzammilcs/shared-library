@@ -1,7 +1,7 @@
 def call(Map config=[:]){
     def gitTool=tool 'git'
     echo config.url
-     echo  "${currentBuild.payload}"
+    currentBuild.id=currentBuild.buildNumber + currentBuild.projectName
      git branch: 'master', url: "${config.url}"
     
 }
